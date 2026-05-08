@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-purple-light: #f3e5f5;
+  --color-brand-purple: #e1bee7;
+  --color-brand-purple-dark: #ce93d8;
+  --color-brand-accent: #9c27b0;
+  
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-handwritten: "Dancing Script", cursive;
+}
+
+@layer utilities {
+  .text-gradient-rose {
+    @apply bg-clip-text text-transparent bg-linear-to-r from-purple-400 via-fuchsia-500 to-pink-500;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-brand-purple-light text-slate-800 antialiased overflow-x-hidden;
+    font-family: var(--font-display);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Custom animations for particles */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  animation: float linear infinite;
+}
