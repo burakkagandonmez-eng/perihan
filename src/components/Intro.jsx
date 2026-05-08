@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Heart } from 'lucide-react';
 
 const Intro = ({ onOpen }) => {
   return (
@@ -45,8 +46,26 @@ const Intro = ({ onOpen }) => {
           className="text-5xl md:text-6xl text-brand-accent mb-8"
           style={{ fontFamily: 'var(--font-handwritten)' }}
         >
-          Canım Annem Perihan...
+          Seni çok seviyoruz canım annem Perihan
         </motion.h1>
+
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.7, type: "spring" }}
+          className="mb-10 flex justify-center"
+        >
+          <div className="relative p-1 bg-white rounded-full shadow-2xl">
+            <img 
+              src="/mother_icon.png" 
+              alt="Perihan" 
+              className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover border-2 border-brand-accent/10"
+            />
+            <div className="absolute -bottom-1 -right-1 bg-white p-2 rounded-full shadow-lg border border-brand-accent/10">
+              <Heart className="w-6 h-6 text-brand-accent fill-brand-accent" />
+            </div>
+          </div>
+        </motion.div>
 
         <motion.button
           whileHover={{ scale: 1.05 }}
